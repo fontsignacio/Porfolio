@@ -14,8 +14,7 @@ class HomeScreen extends StatelessWidget {
       color: Coolors.primaryColor,
       child: VStack([
         const HeaderScreen(),
-        // ignore: prefer_const_constructors
-        if (context.isMobile) IntroductionWidget().p16(),
+        if (context.isMobile) const IntroductionWidget().p16(),
         const MiddleScreen(),
         const FooterScreen(),
       ]).scrollVertical(),

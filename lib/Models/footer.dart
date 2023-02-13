@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/Models/header.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:portfolio/Media/colors.dart';
 
@@ -31,9 +32,13 @@ class FooterScreen extends StatelessWidget {
           ),
           web: HStack(
             [
-              "Got a project?\nLet's talk.".text.center.white.xl2.make(),
+              "Got a project? Let's talk.".text.center.white.xl2.make(),
               10.widthBox,
-              "fontsignacio@gmail.com"
+              GestureDetector(
+                onTap: () {
+                  launchUrlString("https://mail.google.com/mail/u/0/?fs=1&to=fontsignacio@gmail.com&su=SUBJECT&body=BODY&bcc=fontsignacio@gmail.com&tf=cm");
+                },
+                child: "fontsignacio@gmail.com"
                   .text
                   .color(Coolors.accentColor)
                   .semiBold
@@ -43,8 +48,9 @@ class FooterScreen extends StatelessWidget {
                   .p16
                   .rounded
                   .make(),
+              )
             ],
-            alignment: MainAxisAlignment.spaceAround,
+            alignment: MainAxisAlignment.center,
           ).w(context.safePercentWidth * 70).scale150().p16(),
         ),
         50.heightBox,

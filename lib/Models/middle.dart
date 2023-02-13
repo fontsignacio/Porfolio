@@ -18,22 +18,23 @@ class MiddleScreen extends StatelessWidget {
                 .xl4
                 .white
                 .make(),
-            20.widthBox,
+            100.widthBox,
             Expanded(
-                child: VxSwiper(
-              enlargeCenterPage: true,
-              scrollDirection: Axis.horizontal,
-              items: const [
-                ProjectWidget(title: "WhatsApp Clone"),
-                ProjectWidget(title: "Billboard Movies"),
-                ProjectWidget(title: "QuizFlow"),
-              ],
-              height: 300,
-              viewportFraction: context.isMobile ? 0.75 : 0.4,
-              autoPlay: true,
-              autoPlayAnimationDuration: 1.seconds,
-            ))
-          ]).p64().h(context.isMobile ? 500 : 300),
+              child: VxSwiper(
+                enlargeCenterPage: true,
+                scrollDirection: Axis.horizontal,
+                items: const [
+                  ProjectWidget(title: "WhatsApp Clone"),
+                  ProjectWidget(title: "Billboard Movies"),
+                  ProjectWidget(title: "QuizFlow"),
+                ],
+                height: 300,
+                viewportFraction: context.isMobile ? 0.75 : 0.4,
+                autoPlay: true,
+                autoPlayAnimationDuration: 1.seconds,
+              )
+            )
+          ]).p64().h(context.isMobile ? 600 : 400),
     );
   }
 }

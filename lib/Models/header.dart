@@ -24,7 +24,7 @@ class HeaderScreen extends StatelessWidget {
           ZStack(
             [
               if (context.isMobile) const PictureWidget().pOnly(left: 135)   
-              else const PictureWidget().pOnly(right: 450),
+              else const PictureWidget().pOnly(right: 480, top: 95),
               if (!context.isMobile) const Picture2(),
               Row(
                 children: [
@@ -129,7 +129,7 @@ class PictureWidget extends StatelessWidget {
       child: Image.asset(
         "assets/images/me.png",
         fit: BoxFit.cover,
-        height: context.percentHeight * 60,
+        height: context.percentHeight * 50,
       ),
     );
   }
