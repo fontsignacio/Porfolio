@@ -4,6 +4,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+
 class HeaderScreen extends StatelessWidget {
   const HeaderScreen({super.key});
 
@@ -73,7 +74,6 @@ class HeaderScreen extends StatelessWidget {
 
 class IntroductionWidget extends StatelessWidget {
   const IntroductionWidget({super.key});
-  
   @override
   Widget build(BuildContext context) {
     return VStack(
@@ -82,22 +82,21 @@ class IntroductionWidget extends StatelessWidget {
           "About me".text.gray500.widest.xl3.make(),
           10.heightBox,
           "Argentinian with more than three years of experience building multiplatform apps with Flutter and other technologies. Working in groups,using agile methodologies like SCRUM or XP, and learning more everyday."
-              .text
-              .white
-              .xl3
-              .maxLines(10)
-              .make()
-              .w(context.isMobile
-                  ? context.screenWidth
-                  : context.percentWidth * 40),
+          .text
+          .white
+          .xl3
+          .maxLines(10)
+          .make()
+          .w(context.isMobile
+              ? context.screenWidth
+              : context.percentWidth * 40),
           30.heightBox,
         ].vStack(),
         ElevatedButton(
           onPressed: () {
             launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
-          }, 
-          
-          child: "Resume".text.make(),
+          },       
+          child: "Resume".text.make()
         ).h(50)
       ],
       crossAlignment: CrossAxisAlignment.center,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MiddleScreen extends StatelessWidget {
@@ -23,10 +24,16 @@ class MiddleScreen extends StatelessWidget {
               child: VxSwiper(
                 enlargeCenterPage: true,
                 scrollDirection: Axis.horizontal,
-                items: const [
-                  ProjectWidget(title: "WhatsApp Clone"),
-                  ProjectWidget(title: "Billboard Movies"),
-                  ProjectWidget(title: "QuizFlow"),
+                items: [
+                  const ProjectWidget(title: "WhatsApp Clone").onTap(() {
+                    launchUrlString("https://github.com/fontsignacio/WhatsApp-Clone");
+                  }),
+                  const ProjectWidget(title: "Billboard Movies").onTap(() {
+                    launchUrlString("https://github.com/fontsignacio/Billboard-Movies");
+                  }),
+                  const ProjectWidget(title: "QuizFlow").onTap(() {
+                    launchUrlString("https://github.com/fontsignacio/QuizFlow");
+                  }),
                 ],
                 height: 300,
                 viewportFraction: context.isMobile ? 0.75 : 0.4,
@@ -46,14 +53,14 @@ class ProjectWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return title.text.bold.white.xl.wide.center
-        .make()
-        .box
-        .p8
-        .roundedLg
-        .neumorphic(color: Vx.purple700, elevation: 5, curve: VxCurve.flat)
-        .alignCenter
-        .square(300)
-        .make()
-        .p8();
+    .make()
+    .box
+    .p8
+    .roundedLg
+    .neumorphic(color: Vx.purple700, elevation: 5, curve: VxCurve.flat)
+    .alignCenter
+    .square(300)
+    .make()
+    .p8();
   }
 }
