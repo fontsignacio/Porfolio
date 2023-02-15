@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 class HeaderScreen extends StatelessWidget {
   const HeaderScreen({super.key});
 
@@ -24,8 +23,7 @@ class HeaderScreen extends StatelessWidget {
         child: VStack([
           ZStack(
             [
-              if (context.isMobile) const PictureWidget().pOnly(left: 135)   
-              else const PictureWidget().pOnly(right: 480, top: 95),
+              if (!context.isMobile) const PictureWidget().pOnly(right: 500, top: 92.4),
               if (!context.isMobile) const Picture2(),
               Row(
                 children: [
@@ -57,7 +55,9 @@ class HeaderScreen extends StatelessWidget {
                           .h(context.percentHeight * 60),
                       fallback: const Offstage(),
                     ),
-                  )
+                  ),
+                  if (context.isMobile) const Language().pOnly(right: 19, bottom: 235)
+                  else const Language().pOnly(right: 19, bottom: 360)
                 ],
               ).w(context.screenWidth)
             ],
@@ -79,9 +79,9 @@ class IntroductionWidget extends StatelessWidget {
     return VStack(
       [
         [
-          "About me".text.gray500.widest.xl3.make(),
+          "About me".text.gray500.widest.xl4.make(),
           10.heightBox,
-          "Argentinian with more than three years of experience building multiplatform apps with Flutter and other technologies. Working in groups,using agile methodologies like SCRUM or XP, and learning more everyday."
+          "Argentinian with more than three years of experience building multiplatform apps with Flutter and other technologies. Working in groups, using agile methodologies like SCRUM or XP, and learning more everyday."
           .text
           .white
           .xl3
@@ -90,7 +90,17 @@ class IntroductionWidget extends StatelessWidget {
           .w(context.isMobile
               ? context.screenWidth
               : context.percentWidth * 40),
-          30.heightBox,
+          10.heightBox,
+          "Technologies I have worked with:"
+          .text.yellow400.xl
+          .make().w(context.isMobile
+              ? context.screenWidth
+              : context.percentWidth * 40),
+          const Tech()
+          .w(context.isMobile
+              ? context.screenWidth
+              : context.percentWidth * 40),
+          5.heightBox,
         ].vStack(),
         ElevatedButton(
           onPressed: () {
@@ -102,6 +112,71 @@ class IntroductionWidget extends StatelessWidget {
       crossAlignment: CrossAxisAlignment.center,
       alignment: MainAxisAlignment.spaceEvenly,
     );
+  }
+}
+
+class Tech extends StatelessWidget {
+  const Tech({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const Icon(
+          Icons.arrow_right,
+          size: 30,
+          color: Vx.yellow400
+        ),
+        "Fluter".text.white.bold.make(),
+        const Icon(
+          Icons.arrow_right,
+          size: 30,
+          color: Vx.yellow400
+        ),
+        "Dart".text.white.bold.make(),
+        const Icon(
+          Icons.arrow_right,
+          size: 30,
+          color: Vx.yellow400
+        ),
+        "Java".text.white.bold.make(),
+        const Icon(
+          Icons.arrow_right,
+          size: 30,
+          color: Vx.yellow400
+        ),
+        "Python".text.white.bold.make(),
+        const Icon(
+          Icons.arrow_right,
+          size: 30,
+          color: Vx.yellow400
+        ),
+        "C".text.white.bold.make(),
+
+      ],
+    );
+  }
+}
+
+class Language extends StatelessWidget {
+  const Language({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  "EN"
+      .text
+      .color(Coolors.accentColor)
+      .semiBold
+      .make()
+      .box
+      .border(color: Coolors.accentColor)
+      .p16
+      .rounded
+      .make()
+      .shimmer(primaryColor: Coolors.accentColor)
+      .onTap(() {/*
+        launchUrlString("https://mail.google.com/mail/u/0/?fs=1&to=fontsignacio@gmail.com&su=SUBJECT&body=BODY&bcc=fontsignacio@gmail.com&tf=cm");*/
+      });
   }
 }
 

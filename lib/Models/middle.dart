@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:portfolio/Media/colors.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MiddleScreen extends StatelessWidget {
@@ -8,7 +9,7 @@ class MiddleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Vx.neutral700,
+      color: Coolors.thirdcolor,
       child: Flex(
           direction: context.isMobile ? Axis.vertical : Axis.horizontal,
           children: [

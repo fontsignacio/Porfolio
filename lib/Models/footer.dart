@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/Models/header.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -40,6 +39,10 @@ class FooterScreen extends StatelessWidget {
                   .p16
                   .rounded
                   .make()
+                  .shimmer(primaryColor: Coolors.accentColor)
+                  .onTap(() {
+                  launchUrlString("https://mail.google.com/mail/u/0/?fs=1&to=fontsignacio@gmail.com&su=SUBJECT&body=BODY&bcc=fontsignacio@gmail.com&tf=cm");
+                }),    
             ],
             crossAlignment: CrossAxisAlignment.center,
           ),
@@ -68,15 +71,17 @@ class FooterScreen extends StatelessWidget {
                 .border(color: Coolors.accentColor)
                 .p16
                 .rounded
-                .make().onTap(() {
+                .make()
+                .shimmer(primaryColor: Coolors.accentColor)
+                .onTap(() {
                   launchUrlString("https://mail.google.com/mail/u/0/?fs=1&to=fontsignacio@gmail.com&su=SUBJECT&body=BODY&bcc=fontsignacio@gmail.com&tf=cm");
                 }),    
             ],
             alignment: MainAxisAlignment.center,
           ).w(context.safePercentWidth * 70).scale150().p16(),
         ),
-        50.heightBox,
-        const CustomAppBar(),
+        100.heightBox,
+        const CustomAppBar().shimmer(primaryColor: Coolors.accentColor),
         10.heightBox,
         "Thanks for scrolling, ".richText.semiBold.white.withTextSpanChildren(
             ["that's all folks.".textSpan.gray500.make()]).make(),
