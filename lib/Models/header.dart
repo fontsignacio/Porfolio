@@ -14,7 +14,7 @@ class HeaderScreen extends StatelessWidget {
         .white
         .xl6
         .lineHeight(1)
-        .size(context.isMobile ? 15 : 20)
+        .size(context.isMobile ? 11 : 20)
         .bold
         .make()
         .shimmer();
@@ -23,8 +23,17 @@ class HeaderScreen extends StatelessWidget {
         child: VStack([
           ZStack(
             [
-              if (!context.isMobile) const PictureWidget().pOnly(right: 500, top: 92.4),
-              if (!context.isMobile) const Picture2(),
+              VxResponsive(
+                large: const PictureWidget().pOnly(right: 700, top: 45),
+                fallback: const Offstage(),          
+              ),
+              VxResponsive(
+                xsmall: const Picture2().pOnly(left: 145),
+                small: const Picture2().pOnly(left: 145),
+                medium: const Picture2().pOnly(left: 145),
+                large: const Picture2().pOnly(left: 145),
+                fallback: const Offstage(),          
+              ),
               Row(
                 children: [
                   VStack([
@@ -48,10 +57,10 @@ class HeaderScreen extends StatelessWidget {
                   Expanded(
                     child: VxResponsive(
                       medium: const IntroductionWidget()
-                          .pOnly(left: 120)
+                          .pOnly(left: 50)
                           .h(context.percentHeight * 60),
                       large: const IntroductionWidget()
-                          .pOnly(right: 150, top: 50)
+                          .pOnly(left: 75)
                           .h(context.percentHeight * 60),
                       fallback: const Offstage(),
                     ),
@@ -74,6 +83,7 @@ class HeaderScreen extends StatelessWidget {
 
 class IntroductionWidget extends StatelessWidget {
   const IntroductionWidget({super.key});
+  
   @override
   Widget build(BuildContext context) {
     return VStack(
@@ -81,7 +91,7 @@ class IntroductionWidget extends StatelessWidget {
         [
           "About me".text.gray500.widest.xl4.make(),
           10.heightBox,
-          "Argentinian with more than three years of experience building multiplatform apps with Flutter and other technologies. Working in groups, using agile methodologies like SCRUM or XP, and learning more everyday."
+          "Engineering Student and Software Developer, currently living in Argentina. My interests range from technology to design and System Information. Loves open-sourcing cool projects on Github and Lerning about Development Multi-plataform Apps. Currently Flutter and Dart enthusiast."
           .text
           .white
           .xl3
@@ -102,14 +112,22 @@ class IntroductionWidget extends StatelessWidget {
               : context.percentWidth * 40),
           5.heightBox,
         ].vStack(),
+        if (context.isMobile)
         ElevatedButton(
           onPressed: () {
             launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
           },       
-          child: "Resume".text.make()
-        ).h(50)
+          child: "View Resume".text.make()
+        ).h(50).pOnly(left: 100)
+        else         
+        ElevatedButton(
+          onPressed: () {
+            launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
+          },       
+          child: "View Resume".text.make()
+        ).h(50),
       ],
-      crossAlignment: CrossAxisAlignment.center,
+      //crossAlignment: CrossAxisAlignment.center,
       alignment: MainAxisAlignment.spaceEvenly,
     );
   }
@@ -174,9 +192,7 @@ class Language extends StatelessWidget {
       .rounded
       .make()
       .shimmer(primaryColor: Coolors.accentColor)
-      .onTap(() {/*
-        launchUrlString("https://mail.google.com/mail/u/0/?fs=1&to=fontsignacio@gmail.com&su=SUBJECT&body=BODY&bcc=fontsignacio@gmail.com&tf=cm");*/
-      });
+      .onTap(() {});
   }
 }
 
@@ -187,8 +203,8 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Icon(
       FontAwesomeIcons.codeBranch,
-      size: 50,
       color: Coolors.accentColor,
+      size: 50,
     );
   }
 }
@@ -199,11 +215,11 @@ class PictureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
+      alignment: Alignment.center,  
       child: Image.asset(
         "assets/images/me.png",
         fit: BoxFit.cover,
-        height: context.percentHeight * 50,
+        height: context.percentHeight * 55,
       ),
     );
   }

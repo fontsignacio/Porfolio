@@ -11,7 +11,7 @@ class MiddleScreen extends StatelessWidget {
     return Material(
       color: Coolors.thirdcolor,
       child: Flex(
-          direction: context.isMobile ? Axis.vertical : Axis.horizontal,
+          direction: context.isMobile || context.isMobileTypeTablet ? Axis.vertical : Axis.horizontal,
           children: [
             "All Creative works,\n"
                 .richText
@@ -20,7 +20,7 @@ class MiddleScreen extends StatelessWidget {
                 .xl4
                 .white
                 .make(),
-            100.widthBox,
+            20.widthBox,
             Expanded(
               child: VxSwiper(
                 enlargeCenterPage: true,
