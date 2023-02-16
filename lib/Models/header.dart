@@ -28,7 +28,11 @@ class HeaderScreen extends StatelessWidget {
                 large: const PictureWidget().pOnly(right: 700, top: 45),
                 fallback: const Offstage(),          
               ),
-              VxResponsive(
+              VxResponsive( 
+                small: const Picture2().pOnly(left: 145)
+                  .onTap(() {
+                    launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
+                }),
                 large: const Picture2().pOnly(left: 145),
                 fallback: const Offstage(),          
               ),
@@ -50,13 +54,13 @@ class HeaderScreen extends StatelessWidget {
                     30.heightBox,
                     const SocialAccounts(),
                   ]).pSymmetric(
-                    h: context.percentWidth * 10,
+                    h: context.percentWidth * 5,
                     v: 32,
                   ),
                   Expanded(
                     child: VxResponsive(
                       medium: const IntroductionWidget()
-                          .pOnly(left: 50)
+                          .pOnly(left: 50).scale90()
                           .h(context.percentHeight * 60),
                       large: const IntroductionWidget()
                           .pOnly(left: 75)
@@ -111,7 +115,7 @@ class IntroductionWidget extends StatelessWidget {
               : context.percentWidth * 40),
           5.heightBox,
         ].vStack(),
-        if (context.isMobile)
+        //if (context.isMobile)
         AnimatedButton(
           animatedOn: AnimatedOn.onHover,
           height: 40,
@@ -128,8 +132,8 @@ class IntroductionWidget extends StatelessWidget {
           onPress: () { 
           launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
           },
-        ).pOnly(left: 100) 
-        else 
+        )
+        /*else 
         AnimatedButton(
           animatedOn: AnimatedOn.onHover,
           height: 40,
@@ -146,9 +150,9 @@ class IntroductionWidget extends StatelessWidget {
           onPress: () { 
           launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
           },
-        )     
+        )     */
       ],
-      //crossAlignment: CrossAxisAlignment.center,
+      crossAlignment: CrossAxisAlignment.center,
       alignment: MainAxisAlignment.spaceEvenly,
     );
   }
