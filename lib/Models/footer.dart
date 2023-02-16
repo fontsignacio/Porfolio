@@ -84,7 +84,7 @@ class FooterScreen extends StatelessWidget {
         const CustomAppBar().shimmer(primaryColor: Coolors.accentColor),
         10.heightBox,
         "Thanks for scrolling, ".richText.semiBold.white.withTextSpanChildren(
-            ["that's all folks.".textSpan.gray500.make()]).make(),
+            ["contact me".textSpan.gray500.make()]).make(),
         10.heightBox,
         const SocialAccounts(),
   

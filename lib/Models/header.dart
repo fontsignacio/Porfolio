@@ -15,7 +15,7 @@ class HeaderScreen extends StatelessWidget {
         .white
         .xl6
         .lineHeight(1)
-        .size(context.isMobile ? 11 : 20)
+        .size(context.isMobile ? 11 : 17)
         .bold
         .make()
         .shimmer();
@@ -29,10 +29,9 @@ class HeaderScreen extends StatelessWidget {
                 fallback: const Offstage(),          
               ),
               VxResponsive( 
-                small: const Picture2().pOnly(left: 145)
-                  .onTap(() {
-                    launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
-                }),
+                small: const IntroductionWidget()
+                    .pOnly(left: 380).scale75()
+                    .h(context.percentHeight * 60),
                 large: const Picture2().pOnly(left: 145),
                 fallback: const Offstage(),          
               ),
@@ -59,17 +58,15 @@ class HeaderScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: VxResponsive(
-                      medium: const IntroductionWidget()
-                          .pOnly(left: 50).scale90()
-                          .h(context.percentHeight * 60),
+                      medium: const Picture2().pOnly(left: 145),
                       large: const IntroductionWidget()
                           .pOnly(left: 75)
                           .h(context.percentHeight * 60),
                       fallback: const Offstage(),
                     ),
                   ),
-                  if (context.isMobile) const Language().pOnly(right: 19, bottom: 235)
-                  else const Language().pOnly(right: 19, bottom: 360)
+                  if (context.isMobile) const Language().pOnly(right: 19, bottom: 200)
+                  else const Language().pOnly(right: 19, bottom: 300)
                 ],
               ).w(context.screenWidth)
             ],
@@ -109,13 +106,14 @@ class IntroductionWidget extends StatelessWidget {
           .make().w(context.isMobile
               ? context.screenWidth
               : context.percentWidth * 40),
-          const Tech()
-          .w(context.isMobile
+          "Flutter | Dart | Java | Python | C"
+          .text.gray300.xl
+          .make().w(context.isMobile  
               ? context.screenWidth
               : context.percentWidth * 40),
-          5.heightBox,
+          if (context.isMobile) 30.heightBox
+          else 5.heightBox,
         ].vStack(),
-        //if (context.isMobile)
         AnimatedButton(
           animatedOn: AnimatedOn.onHover,
           height: 40,
@@ -133,24 +131,6 @@ class IntroductionWidget extends StatelessWidget {
           launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
           },
         )
-        /*else 
-        AnimatedButton(
-          animatedOn: AnimatedOn.onHover,
-          height: 40,
-          width: context.percentHeight * 20,
-          text: 'View Resume',
-          isReverse: true,
-          selectedTextColor: Colors.black,
-          backgroundColor: Vx.yellow400,
-          transitionType: TransitionType.CENTER_LR_OUT,
-          textStyle: const TextStyle(
-            fontSize: 15,
-            color: Colors.black,
-          ),
-          onPress: () { 
-          launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
-          },
-        )     */
       ],
       crossAlignment: CrossAxisAlignment.center,
       alignment: MainAxisAlignment.spaceEvenly,
@@ -158,48 +138,6 @@ class IntroductionWidget extends StatelessWidget {
   }
 }
 
-class Tech extends StatelessWidget {
-  const Tech({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Icon(
-          Icons.arrow_right,
-          size: 30,
-          color: Vx.yellow400
-        ),
-        "Fluter".text.white.bold.make(),
-        const Icon(
-          Icons.arrow_right,
-          size: 30,
-          color: Vx.yellow400
-        ),
-        "Dart".text.white.bold.make(),
-        const Icon(
-          Icons.arrow_right,
-          size: 30,
-          color: Vx.yellow400
-        ),
-        "Java".text.white.bold.make(),
-        const Icon(
-          Icons.arrow_right,
-          size: 30,
-          color: Vx.yellow400
-        ),
-        "Python".text.white.bold.make(),
-        const Icon(
-          Icons.arrow_right,
-          size: 30,
-          color: Vx.yellow400
-        ),
-        "C".text.white.bold.make(),
-
-      ],
-    );
-  }
-}
 
 class Language extends StatelessWidget {
   const Language({super.key});
