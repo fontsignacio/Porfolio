@@ -3,6 +3,7 @@ import 'package:portfolio/Media/colors.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_animated_button/flutter_animated_button.dart';
 
 class HeaderScreen extends StatelessWidget {
   const HeaderScreen({super.key});
@@ -28,12 +29,10 @@ class HeaderScreen extends StatelessWidget {
                 fallback: const Offstage(),          
               ),
               VxResponsive(
-                xsmall: const Picture2().pOnly(left: 145),
-                small: const Picture2().pOnly(left: 145),
-                medium: const Picture2().pOnly(left: 145),
                 large: const Picture2().pOnly(left: 145),
                 fallback: const Offstage(),          
               ),
+              if (context.isMobile)const Picture2().pOnly(left: 145),
               Row(
                 children: [
                   VStack([
@@ -75,7 +74,7 @@ class HeaderScreen extends StatelessWidget {
         )
       )
       .size(context.screenWidth, context.percentHeight * 60)
-      .color(Coolors.secondaryColor)
+      .color(Coolors.primaryColor)
       .make(),
     );
   }
@@ -113,19 +112,41 @@ class IntroductionWidget extends StatelessWidget {
           5.heightBox,
         ].vStack(),
         if (context.isMobile)
-        ElevatedButton(
-          onPressed: () {
-            launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
-          },       
-          child: "View Resume".text.make()
-        ).h(50).pOnly(left: 100)
-        else         
-        ElevatedButton(
-          onPressed: () {
-            launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
-          },       
-          child: "View Resume".text.make()
-        ).h(50),
+        AnimatedButton(
+          animatedOn: AnimatedOn.onHover,
+          height: 40,
+          width: context.percentHeight * 20,
+          text: 'View Resume',
+          isReverse: true,
+          selectedTextColor: Colors.black,
+          backgroundColor: Vx.yellow400,
+          transitionType: TransitionType.CENTER_LR_OUT,
+          textStyle: const TextStyle(
+            fontSize: 15,
+            color: Colors.black,
+          ),
+          onPress: () { 
+          launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
+          },
+        ).pOnly(left: 100) 
+        else 
+        AnimatedButton(
+          animatedOn: AnimatedOn.onHover,
+          height: 40,
+          width: context.percentHeight * 20,
+          text: 'View Resume',
+          isReverse: true,
+          selectedTextColor: Colors.black,
+          backgroundColor: Vx.yellow400,
+          transitionType: TransitionType.CENTER_LR_OUT,
+          textStyle: const TextStyle(
+            fontSize: 15,
+            color: Colors.black,
+          ),
+          onPress: () { 
+          launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
+          },
+        )     
       ],
       //crossAlignment: CrossAxisAlignment.center,
       alignment: MainAxisAlignment.spaceEvenly,

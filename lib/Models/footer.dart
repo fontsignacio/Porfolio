@@ -51,7 +51,7 @@ class FooterScreen extends StatelessWidget {
               AnimatedTextKit(
                 animatedTexts: [
                   TypewriterAnimatedText(
-                    "Got a project? Let's talk.",
+                    "Got a project?\nLet's talk.",
                     textStyle: const TextStyle(
                       color: Colors.white,
                       fontSize: 20

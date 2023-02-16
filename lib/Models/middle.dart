@@ -9,9 +9,9 @@ class MiddleScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Coolors.thirdcolor,
+      color: Coolors.secondaryColor,
       child: Flex(
-          direction: context.isMobile || context.isMobileTypeTablet ? Axis.vertical : Axis.horizontal,
+          direction: context.isMobile ? Axis.vertical : Axis.horizontal,
           children: [
             "All Creative works,\n"
                 .richText
@@ -37,7 +37,7 @@ class MiddleScreen extends StatelessWidget {
                   }),
                 ],
                 height: 300,
-                viewportFraction: context.isMobile ? 0.75 : 0.4,
+                viewportFraction: context.isMobile ? 0.75 : 0.75,
                 autoPlay: true,
                 autoPlayAnimationDuration: 1.seconds,
               )
