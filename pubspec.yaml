@@ -70,6 +70,9 @@ flutter:
   assets:
      - assets/images/me.png
      - assets/images/pic.png
+     - assets/images/wp.png
+     - assets/images/movie.png
+     - assets/images/quiz.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

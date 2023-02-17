@@ -5,6 +5,7 @@ import 'package:velocity_x/velocity_x.dart';
 mixin Coolors {
   static const Color primaryColor = Color(0xff252733);
   static const Color secondaryColor = Color(0xff333645);
+  static const Color description = Color.fromARGB(255, 52, 51, 51);
   static Color accentColor = Vx.purple400;
   static List<Color> colors = [
     Vx.green400,
