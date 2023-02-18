@@ -6,7 +6,8 @@ import 'package:portfolio/Media/colors.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class FooterScreen extends StatelessWidget {
-  const FooterScreen({super.key});
+  const FooterScreen({super.key, required this.isSpanish });
+  final bool isSpanish ;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,17 @@ class FooterScreen extends StatelessWidget {
             [
               AnimatedTextKit(
                 animatedTexts: [
+                  if(isSpanish )
                   TypewriterAnimatedText(
+                    "¿Tienes un proyecto?\nHablemos.",
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
+                    speed: const Duration(milliseconds: 100),
+                    textAlign: TextAlign.center,
+                  )
+                  else TypewriterAnimatedText(
                     "Got a project?\nLet's talk.",
                     textStyle: const TextStyle(
                       color: Colors.white,
@@ -50,7 +61,17 @@ class FooterScreen extends StatelessWidget {
             [
               AnimatedTextKit(
                 animatedTexts: [
+                  if(isSpanish )
                   TypewriterAnimatedText(
+                    "¿Tienes un proyecto?\nHablemos.",
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15
+                    ),
+                    speed: const Duration(milliseconds: 100),
+                    textAlign: TextAlign.center,
+                  )
+                  else TypewriterAnimatedText(
                     "Got a project?\nLet's talk.",
                     textStyle: const TextStyle(
                       color: Colors.white,
@@ -83,7 +104,10 @@ class FooterScreen extends StatelessWidget {
         100.heightBox,
         const CustomAppBar().shimmer(primaryColor: Coolors.accentColor),
         10.heightBox,
-        "Thanks for scrolling, ".richText.semiBold.white.withTextSpanChildren(
+        if(isSpanish )
+        "Gracias por ver, ".richText.semiBold.white.withTextSpanChildren(
+            ["contactame".textSpan.gray500.make()]).make()
+        else "Thanks for scrolling, ".richText.semiBold.white.withTextSpanChildren(
             ["contact me".textSpan.gray500.make()]).make(),
         10.heightBox,
         const SocialAccounts(),

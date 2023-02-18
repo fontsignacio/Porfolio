@@ -5,8 +5,11 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 
+
 class HeaderScreen extends StatelessWidget {
-  const HeaderScreen({super.key});
+  const HeaderScreen({super.key, required this.language, required this.isSpanish});
+  final Widget language;
+  final bool isSpanish ;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class HeaderScreen extends StatelessWidget {
         .white
         .xl6
         .lineHeight(1)
-        .size(context.isMobile ? 11 : 17)
+        .size(context.isMobile ? 11 : 15)
         .bold
         .make()
         .shimmer();
@@ -25,13 +28,16 @@ class HeaderScreen extends StatelessWidget {
           ZStack(
             [
               VxResponsive(
-                large: const PictureWidget().pOnly(right: 700, top: 45),
+                large: const PictureWidget().pOnly(right: 800, top: 45),
                 fallback: const Offstage(),          
               ),
-              VxResponsive( 
-                small: const IntroductionWidget()
-                    .pOnly(left: 380).scale75()
-                    .h(context.percentHeight * 60),
+              VxResponsive(
+                small: Positioned(
+                  left: 270,
+                  top: 20,
+                  child: IntroductionWidget(isSpanish : isSpanish )
+                    .scale(scaleValue: 0.70),
+                ),
                 large: const Picture2().pOnly(left: 145),
                 fallback: const Offstage(),          
               ),
@@ -54,19 +60,19 @@ class HeaderScreen extends StatelessWidget {
                     const SocialAccounts(),
                   ]).pSymmetric(
                     h: context.percentWidth * 5,
-                    v: 32,
+                    v: 32,           
                   ),
                   Expanded(
                     child: VxResponsive(
                       medium: const Picture2().pOnly(left: 145),
-                      large: const IntroductionWidget()
+                      large: IntroductionWidget(isSpanish : isSpanish )
                           .pOnly(left: 75)
                           .h(context.percentHeight * 60),
                       fallback: const Offstage(),
                     ),
                   ),
-                  if (context.isMobile) const Language().pOnly(right: 19, bottom: 200)
-                  else const Language().pOnly(right: 19, bottom: 300)
+                  if (context.isMobile) language.pOnly(right: 19, bottom: 200)
+                  else language.pOnly(right: 19, bottom: 300)
                 ],
               ).w(context.screenWidth)
             ],
@@ -81,36 +87,63 @@ class HeaderScreen extends StatelessWidget {
   }
 }
 
-class IntroductionWidget extends StatelessWidget {
-  const IntroductionWidget({super.key});
-  
+class IntroductionWidget extends StatefulWidget {
+  const IntroductionWidget({super.key, required this.isSpanish});
+  final bool isSpanish ;
+
+  @override
+  State<IntroductionWidget> createState() => _IntroductionWidgetState();
+}
+
+class _IntroductionWidgetState extends State<IntroductionWidget> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return VStack(
+    return  VStack(
       [
         [
-          "About me".text.gray500.widest.xl4.make(),
+          if(widget.isSpanish ) "Sobre mi".text.gray500.widest.xl2.make()
+          else "About me".text.gray500.widest.xl2.make(),
           10.heightBox,
-          "Engineering Student and Software Developer, currently living in Argentina. My interests range from technology to design and System Information. Loves open-sourcing cool projects on Github and Lerning about Development Multi-plataform Apps. Currently Flutter and Dart enthusiast."
+          if(widget.isSpanish ) "Estudiante de Ingeniería y Desarrollador de Software, actualmente residente en Argentina. Mis intereses van desde la tecnología hasta el diseño y los Sistemas de Información. Me encantan los proyectos de código abierto en Github y aprender sobre el desarrollo de aplicaciones multiplataforma. Actualmente soy un entusiasta de Flutter y Dart."
           .text
           .white
-          .xl3
-          .maxLines(10)
+          .xl2
+          .maxLines(20)
           .make()
           .w(context.isMobile
               ? context.screenWidth
-              : context.percentWidth * 40),
+              : context.percentWidth * 50)
+          else "Engineering Student and Software Developer, currently living in Argentina. My interests range from technology to design and System Information. Loves open-sourcing cool projects on Github and Lerning about Development Multi-plataform Apps. Currently Flutter and Dart enthusiast."
+          .text
+          .white
+          .xl2
+          .maxLines(20)
+          .make()
+          .w(context.isMobile
+              ? context.screenWidth
+              : context.percentWidth * 50),
           10.heightBox,
-          "Technologies I have worked with:"
+          if (widget.isSpanish ) "Tecnologías con las que he trabajado:"
           .text.yellow400.xl
           .make().w(context.isMobile
               ? context.screenWidth
-              : context.percentWidth * 40),
+              : context.percentWidth * 50)
+          else "Technologies I have worked with:"
+          .text.yellow400.xl
+          .make().w(context.isMobile
+              ? context.screenWidth
+              : context.percentWidth * 50),
           "Flutter | Dart | Java | Python | C"
           .text.gray300.xl
           .make().w(context.isMobile  
               ? context.screenWidth
-              : context.percentWidth * 40),
+              : context.percentWidth * 50),
           if (context.isMobile) 30.heightBox
           else 5.heightBox,
         ].vStack(),
@@ -118,7 +151,7 @@ class IntroductionWidget extends StatelessWidget {
           animatedOn: AnimatedOn.onHover,
           height: 40,
           width: context.percentHeight * 20,
-          text: 'View Resume',
+          text: widget.isSpanish  ? 'Ver Curriculum' : 'View Resume',
           isReverse: true,
           selectedTextColor: Colors.black,
           backgroundColor: Vx.yellow400,
@@ -128,9 +161,10 @@ class IntroductionWidget extends StatelessWidget {
             color: Colors.black,
           ),
           onPress: () { 
-          launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
+            widget.isSpanish  ? launchUrlString("https://drive.google.com/file/d/13DbSDk00v9WqOCQ-Lr3gvcFW9-qSlSwW/view?usp=share_link") :
+            launchUrlString("https://drive.google.com/file/d/1CPXs7pcFXh4HLFd60Dk-kqL8QGqVgWaG/view");
           },
-        )
+        ),
       ],
       crossAlignment: CrossAxisAlignment.center,
       alignment: MainAxisAlignment.spaceEvenly,
@@ -139,25 +173,6 @@ class IntroductionWidget extends StatelessWidget {
 }
 
 
-class Language extends StatelessWidget {
-  const Language({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return  "EN"
-      .text
-      .color(Coolors.accentColor)
-      .semiBold
-      .make()
-      .box
-      .border(color: Coolors.accentColor)
-      .p16
-      .rounded
-      .make()
-      .shimmer(primaryColor: Coolors.accentColor)
-      .onTap(() {});
-  }
-}
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
