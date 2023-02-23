@@ -4,7 +4,8 @@ Building in Flutter a Responsive Portfolio using VelocityX.
 
 ## Screenshots
 
-![Portfolio](https://user-images.githubusercontent.com/93054257/220933244-edfd1e71-4684-4fc1-a4cd-90dc9b1e412b.png)
+![Portfolio](https://user-images.githubusercontent.com/93054257/221019032-07cb5885-cbb3-49bb-be4c-8a2239b57e5c.png)
+
 
 ## Created & Maintained By
 
