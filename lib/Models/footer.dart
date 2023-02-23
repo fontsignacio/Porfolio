@@ -106,7 +106,7 @@ class FooterScreen extends StatelessWidget {
         10.heightBox,
         if(isSpanish )
         "Gracias por ver, ".richText.semiBold.white.withTextSpanChildren(
-            ["contactame".textSpan.gray500.make()]).make()
+            ["contácteme".textSpan.gray500.make()]).make()
         else "Thanks for scrolling, ".richText.semiBold.white.withTextSpanChildren(
             ["contact me".textSpan.gray500.make()]).make(),
         10.heightBox,

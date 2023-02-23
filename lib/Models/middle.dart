@@ -51,22 +51,22 @@ class MiddleScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 items:  [
                   ProjectWidget(title: "WhatsApp Clone",
-                   isSpanish : isSpanish ,
-                   pic: "assets/images/wp.png",
-                   desc: "An app built on Flutter, imitates the basic functions of the WhatsApp like swipe up in your chat list, open the chat, send a message, view status list, use contact button, view call list and open camera.",
-                   url: "https://github.com/fontsignacio/WhatsApp-Clone"
+                    isSpanish : isSpanish ,
+                    pic: "assets/images/wp.png",
+                    desc: "An app built on Flutter, imitates the basic functions of the WhatsApp like swipe up in your chat list, open the chat, send a message, view status list, use contact button, view call list and open camera.",
+                    url: "https://github.com/fontsignacio/WhatsApp-Clone"
                   ),
                   ProjectWidget(title: "Billboard Movies",
                   isSpanish : isSpanish ,
-                   pic: "assets/images/movie.png",
-                   desc: "A movie app that shows the details of a movie list. You can search your movie, save to favorites, search by categories and watch the trailer.",
-                   url: "https://github.com/fontsignacio/Billboard-Movies"
+                    pic: "assets/images/movie.png",
+                    desc: "A movie app that shows the details of a movie list. You can search your movie, save to favorites, search by categories and watch the trailer.",
+                    url: "https://github.com/fontsignacio/Billboard-Movies"
                   ),
                   ProjectWidget(title: "QuizFlow",
-                   isSpanish : isSpanish ,
-                   pic: "assets/images/quiz.png",
-                   desc: "A Quiz App that allows you to log in or register, select your favorite category, select your difficulty, collect points, view profile and log out.",
-                   url: "https://github.com/fontsignacio/QuizFlow"
+                    isSpanish : isSpanish ,
+                    pic: "assets/images/quiz.png",
+                    desc: "A Quiz App that allows you to log in or register, select your favorite category, select your difficulty, collect points, view profile and log out.",
+                    url: "https://github.com/fontsignacio/QuizFlow"
                   )
                 ],
                 height: 500,
@@ -82,22 +82,22 @@ class MiddleScreen extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 items:  [
                   ProjectWidget(title: "WhatsApp Clone",
-                   isSpanish : isSpanish ,
-                   pic: "assets/images/wp.png",
-                   desc: "Una aplicación construida en Flutter, imita las funciones básicas de WhatsApp como deslizar hacia arriba en su lista de chat, abrir el chat, enviar un mensaje, ver la lista de estados, utilizar el botón de contacto, ver la lista de llamadas y abrir la cámara.",
-                   url: "https://github.com/fontsignacio/WhatsApp-Clone"
+                    isSpanish : isSpanish ,
+                    pic: "assets/images/wp.png",
+                    desc: "Una aplicación construida en Flutter, imita las funciones básicas de WhatsApp como deslizar hacia arriba en su lista de chat, abrir el chat, enviar un mensaje, ver la lista de estados, utilizar el botón de contacto, ver la lista de llamadas y abrir la cámara.",
+                    url: "https://github.com/fontsignacio/WhatsApp-Clone"
                   ),
                   ProjectWidget(title: "Billboard Movies",
                   isSpanish : isSpanish ,
-                   pic: "assets/images/movie.png",
-                   desc: "Una aplicación de películas que muestra los detalles de una lista. Puede buscar su favorita, guardar, buscar por categorías y ver el trailer.",
-                   url: "https://github.com/fontsignacio/Billboard-Movies"
+                    pic: "assets/images/movie.png",
+                    desc: "Una aplicación de películas que muestra los detalles de una lista. Puede buscar su favorita, guardar, buscar por categorías y ver el trailer.",
+                    url: "https://github.com/fontsignacio/Billboard-Movies"
                   ),
                   ProjectWidget(title: "QuizFlow",
-                   isSpanish : isSpanish ,
-                   pic: "assets/images/quiz.png",
-                   desc: "Una aplicación de examen que le permite iniciar sesión o registrarse, seleccionar su categoría favorita, seleccionar su dificultad, acumular puntos, ver el perfil y cerrar sesión.",
-                   url: "https://github.com/fontsignacio/QuizFlow"
+                    isSpanish : isSpanish ,
+                    pic: "assets/images/quiz.png",
+                    desc: "Una aplicación de examen que le permite iniciar sesión o registrarse, seleccionar su categoría favorita, seleccionar su dificultad, acumular puntos, ver el perfil y cerrar sesión.",
+                    url: "https://github.com/fontsignacio/QuizFlow"
                   )
                 ],
                 height: 500,

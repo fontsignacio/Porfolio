@@ -6,14 +6,14 @@ import 'package:velocity_x/velocity_x.dart';
 import 'package:portfolio/Models/header.dart';
 
 
-class HomeSreen extends StatefulWidget {
-  const HomeSreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomeSreen> createState() => _HomeSreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeSreenState extends State<HomeSreen> {
+class _HomeScreenState extends State<HomeScreen> {
   bool isSpanish = false;
 
   @override
