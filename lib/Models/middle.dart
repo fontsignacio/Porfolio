@@ -26,7 +26,7 @@ class MiddleScreen extends StatelessWidget {
                 .richText
                 .withTextSpanChildren(
                     ["Selecciona un proyecto.".textSpan.yellow400.make()])
-                .xl5
+                .xl4
                 .white.center
                 .make()
             else if (!context.isMobile) "All Creative works, "
@@ -157,7 +157,7 @@ class _ProjectWidgetState extends State<ProjectWidget> {
               child: Container(
                 alignment: Alignment.topCenter,
                 height: context.percentHeight * 30, 
-                child: context.isMobile ? widget.desc.text.white.xl2.make().centered().p12() : 
+                child: context.isMobile ? widget.desc.text.white.xl.make().centered().p12(): 
                       widget.desc.text.white.xl.make().centered().p12().scale90()
               ),
             )
